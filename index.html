@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--My custom font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
@@ -12,7 +13,8 @@
 </head>
 <body>
     <!--Start Button-->
-    <div class = "start-btn"><button>Start Quiz</button></div>
+   <div class = "start-btn"><button>Start Quiz</button></div>
+    
     <!--Quiz-->
     <div class="quiz">
         <header>
@@ -27,17 +29,26 @@
                 <!--See script.js-->
             </div>
             <div class = "answers">
-                <!--See script.js-->
+                <div class= "answer">
+                    <span>Numbers and strings</span>
+                </div>
+                <div class= "answer">
+                    <span>Other arrays</span>
+                </div>
+                <div class= "answer">
+                    <span>Booleans</span>
+                </div>
+                <div class= "answer">
+                    <span>All of the above</span>
+                </div>
             </div>
         </section>
         <footer>
-            <div class= "total-questions">
-                <!--See script.js-->
-            </div>
+                <button class = "next">Next</button>
         </footer>
     </div>
     <div class = "results">
-        <div class="results-text">Congratulations!</div>
+        <div class="results-text">All Done!</div>
         <div class="score-text">
             <!--See script.js-->
         </div>
@@ -50,10 +61,10 @@
             <div class ="score">
                 <!--See script.js-->
             </div>
-            <button class = "submit">Submit</button>
+           <button class = "submit">Submit</button>
         </div>
         </form>
     </div>
-    
+    <script src="./assets/script.js"></script>
 </body>
 </html>
