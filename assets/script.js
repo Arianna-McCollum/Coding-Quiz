@@ -1,3 +1,4 @@
+//Constants used throughout document
 const startBtn = document.querySelector(".start-btn button")
 const timerText = document.querySelector(".timer .timer-text-left")
 const timerSeconds = document.querySelector(".timer .timer-seconds")
@@ -7,7 +8,7 @@ const results = document.querySelector(".results")
 const restartBtn = document.querySelector(".restart-btn")
 const submitBtn = document.querySelector(".submit-btn")
 
-
+//Variables used throughout document
 var userScore = 0;
 var counter;
 var time = 60;
@@ -16,7 +17,7 @@ if (scores===null){
     scores= []; 
 }
 
-
+//start button click listener
 startBtn.onclick = ()=> {
     quiz.classList.add("quizActivate");
     showQuestions(0);
@@ -24,7 +25,7 @@ startBtn.onclick = ()=> {
 }
 
 var questionCount = 0;
-
+//Next button constant and click listener
 const nextBtn = document.querySelector(".next-btn");
 
 nextBtn.onclick = () => {
@@ -35,6 +36,7 @@ nextBtn.onclick = () => {
         showResults();
     }
 }
+//Constants setting up to save high score
 const initialInput = document.querySelector('#ininput');
 const myForm = document.querySelector('#my-form');
 const userList = document.querySelector('.ranking-text')
@@ -43,12 +45,12 @@ var score = { initials: initialInput, value: userScore};
 var saveInitials = function() {
     localStorage.setItem("initials", JSON.stringify(initials));
   };
-
+//Submit button click listener
 submitBtn.onclick =()=> {
     var score = { initials: initialInput.value, value : userScore};
     scores.push(score);
     console.log(userList);
-    localStorage.setItem("scores", JSON.stringify(scores));
+    localStorage.setItem("scores", JSON.stringify(scores));//local storage to save score to computer
     for(var i = 0; i< scores.length; i++){
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${scores[i].initials} : ${scores[i].value}` ));
@@ -61,12 +63,7 @@ submitBtn.onclick =()=> {
 }
 
 
-//restartBtn.onclick =()=> {
-   // window.localStorage.reload();
-//}
-
-
-
+//Shows questions and answers
 function showQuestions(index){
     const questionText= document.querySelector(".question-text")
     var questionTag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
@@ -81,7 +78,7 @@ function showQuestions(index){
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
 }
-
+//What happens when user clicks an option
 function optionSelected(answer){
     var userAnswer = answer.textContent;
     var correctAnswer = questions[questionCount].answer;
@@ -104,7 +101,7 @@ function optionSelected(answer){
         answers.children[i].classList.add("disabled")
     }
 }
-
+//Shows results of quiz
 function showResults(){
     quiz.classList.remove("quizActivate");
     results.classList.add("resultsActivate");
@@ -116,7 +113,7 @@ function showResults(){
     }
 
 }
-
+//Timer set up
 function startTimer(){
     counter = setInterval(timer, 1000);
     function timer(){

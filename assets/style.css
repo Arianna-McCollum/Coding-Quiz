@@ -1,5 +1,8 @@
+
+/*Custom font import*/
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+/*Body and overall styling*/
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +13,7 @@
 body{
     background-color: #F9ADA0;
 }
+/* Style for when the start button and final next button(or timer reaches 0) are clicked */
 .quiz.quizActivate, .results.resultsActivate{
     display:inline;
 }
@@ -18,6 +22,8 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+/*Centers to page and creates box for elements*/
 .start-btn, .quiz, .results{
     position: absolute;
     top: 50%;
@@ -26,6 +32,7 @@ body{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
 }
+/*Start button*/
 .start-btn{
     border-radius: 40%;
     
@@ -48,6 +55,7 @@ body{
     transition: all .8s ease-in-out;
     
 }
+/*quiz section*/
 .quiz {
     width: 80%;
     background-color: #feefec;
@@ -161,6 +169,8 @@ section {
     pointer-events: none;
 }
 
+/* Bottom of quiz section styling */
+
 footer{
     height: 60px;
     padding: 0 50px;
@@ -192,6 +202,8 @@ footer button:hover {
     background-image: linear-gradient(20deg, #f9ada0 12%, #feefec 52%, #f9ada0 90%);
     transition: all .5s ease-in-out;
 }
+
+/*Results section*/
 .results {
     background-color: #feefec;
     display: flex;
