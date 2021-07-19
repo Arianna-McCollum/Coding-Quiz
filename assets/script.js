@@ -111,6 +111,9 @@ function showResults(){
     const score = results.querySelector(".score")
     var scoreTag = '<span>You got '+ userScore + ' points!</span>';
     score.innerHTML= scoreTag;
+    if(time<0){
+        showResults();
+    }
 
 }
 
@@ -120,6 +123,7 @@ function startTimer(){
         timerSeconds.textContent = time;
         time--;
     }
+
 }
 
 function subtractTimer(){
