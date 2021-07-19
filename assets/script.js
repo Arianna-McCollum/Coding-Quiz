@@ -7,9 +7,15 @@ const results = document.querySelector(".results")
 const restartBtn = document.querySelector(".restart-btn")
 const submitBtn = document.querySelector(".submit-btn")
 
+
 var userScore = 0;
 var counter;
-var time = 60; 
+var time = 60;
+var scores= JSON.parse(localStorage.getItem("scores"))
+if (scores===null){
+    scores= []; 
+}
+
 
 startBtn.onclick = ()=> {
     quiz.classList.add("quizActivate");
@@ -32,15 +38,24 @@ nextBtn.onclick = () => {
 const initialInput = document.querySelector('#ininput');
 const myForm = document.querySelector('#my-form');
 const userList = document.querySelector('.ranking-text')
+
+var score = { initials: initialInput, value: userScore};
 var saveInitials = function() {
-    localStorage.setItem("initial", JSON.stringify(initials));
+    localStorage.setItem("initials", JSON.stringify(initials));
   };
 
 submitBtn.onclick =()=> {
-    const li = document.createElement('li');
-    li.appendChild(document.createTextNode(`${initialInput.value} : ${userScore.value}` ));
+    var score = { initials: initialInput.value, value : userScore};
+    scores.push(score);
+    console.log(userList);
+    localStorage.setItem("scores", JSON.stringify(scores));
+    for(var i = 0; i< scores.length; i++){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${scores[i].initials} : ${scores[i].value}` ));
+        console.log(li);
+        userList.appendChild(li);
+    }
 
-    userList.appendChild(li);
 //clear fields
     initialInput.value = '';
 }
