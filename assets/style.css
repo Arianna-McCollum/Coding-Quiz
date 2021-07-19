@@ -63,7 +63,7 @@ body{
     z-index: 2;
     height: 40%;
     padding: 40px;
-    width: 94%;
+    width: 92%;
     margin-left: 40px;
     background-color: #feefec;
     border-radius: 90%;
@@ -140,9 +140,22 @@ section {
 
 .answers .answer.correct{
     color: #114F38;
+    background:#92ebca;
+    font-weight: 600;
+    font-size: 30px;
+    transition: none;
 }
 .answers .answer.incorrect {
     color:#D74242;
+    background: #f59292;
+    font-weight: 600;
+    font-size: 30px;
+    transition: none;
+
+}
+
+.answers .answer.disabled{
+    pointer-events: none;
 }
 
 footer{

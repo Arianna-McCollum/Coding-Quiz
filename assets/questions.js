@@ -1,4 +1,4 @@
-let questions = [
+var questions = [
       {
        numb: 1,
        question: "Arrays in JavaScript can be used to store _____.",
