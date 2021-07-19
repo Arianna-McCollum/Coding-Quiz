@@ -32,8 +32,8 @@ nextBtn.onclick = () => {
 const initialInput = document.querySelector('#ininput');
 const myForm = document.querySelector('#my-form');
 const userList = document.querySelector('.ranking-text')
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+var saveInitials = function() {
+    localStorage.setItem("initial", JSON.stringify(initials));
   };
 
 submitBtn.onclick =()=> {
