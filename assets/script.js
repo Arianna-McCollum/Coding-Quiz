@@ -4,13 +4,17 @@ const timerSeconds = document.querySelector(".timer .timer-seconds")
 const quiz = document.querySelector(".quiz")
 const answers = document.querySelector(".answers")
 const results = document.querySelector(".results")
+const restartBtn = document.querySelector(".restart-btn")
+const submitBtn = document.querySelector(".submit-btn")
 
 var userScore = 0;
 var counter;
+var time = 60; 
+
 startBtn.onclick = ()=> {
     quiz.classList.add("quizActivate");
     showQuestions(0);
-    startTimer(60);
+    startTimer();
 }
 
 var questionCount = 0;
@@ -22,9 +26,31 @@ nextBtn.onclick = () => {
         questionCount ++;
         showQuestions(questionCount);
     }else{
-        
+        showResults();
     }
 }
+const initialInput = document.querySelector('#ininput');
+const myForm = document.querySelector('#my-form');
+const userList = document.querySelector('.ranking-text')
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
+
+submitBtn.onclick =()=> {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(`${initialInput.value} : ${userScore.value}` ));
+
+    userList.appendChild(li);
+//clear fields
+    initialInput.value = '';
+}
+
+
+//restartBtn.onclick =()=> {
+   // window.localStorage.reload();
+//}
+
+
 
 function showQuestions(index){
     const questionText= document.querySelector(".question-text")
@@ -47,6 +73,7 @@ function optionSelected(answer){
     var allOptions = answers.children.length;
     if(userAnswer == correctAnswer){
         answer.classList.add("correct");
+        userScore += 5;
     }else{
         answer.classList.add("incorrect");
         subtractTimer();
@@ -63,7 +90,16 @@ function optionSelected(answer){
     }
 }
 
-function startTimer(time){
+function showResults(){
+    quiz.classList.remove("quizActivate");
+    results.classList.add("resultsActivate");
+    const score = results.querySelector(".score")
+    var scoreTag = '<span>You got '+ userScore + ' points!</span>';
+    score.innerHTML= scoreTag;
+
+}
+
+function startTimer(){
     counter = setInterval(timer, 1000);
     function timer(){
         timerSeconds.textContent = time;
@@ -71,11 +107,8 @@ function startTimer(time){
     }
 }
 
-function subtractTimer(time){
+function subtractTimer(){
     timerSeconds.textContent = time;
-    time -= 10;
+    time -= 15;
 }
-
-
-
 

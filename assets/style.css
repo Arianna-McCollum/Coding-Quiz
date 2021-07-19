@@ -10,8 +10,13 @@
 body{
     background-color: #F9ADA0;
 }
-.quiz.quizActivate{
+.quiz.quizActivate, .results.resultsActivate{
     display:inline;
+}
+.results.resultsActivate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .start-btn, .quiz, .results{
     position: absolute;
@@ -23,9 +28,7 @@ body{
 }
 .start-btn{
     border-radius: 40%;
-    
-    
-    
+    display: none;
 }
 
 
@@ -196,15 +199,15 @@ footer button:hover {
     flex-direction: column;
     padding: 20px;
     width:80%;
-    height: 50%;
+    height: 60%;
     border-radius: 20%;
     transition: all 0.5 ease-in;
-    display: none;
+    /*display: none; */
     
 }
 
 .results-text {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .initials {
@@ -217,7 +220,16 @@ footer button:hover {
     
 }
 
-.submit, .restart-btn {
+.score {
+    font-size: 25px;
+    margin-left: 20%;
+    margin: auto;
+    padding: 20px;
+    
+
+}
+
+.submit-btn, .restart-btn {
     height: 40px;
     line-height: 10px;
     padding: 15px;

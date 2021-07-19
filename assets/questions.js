@@ -42,7 +42,7 @@ var questions = [
         options: [
           "Recipe",
           "Matrix",
-          "Computer program",
+          "Computer Program",
           "Lullaby"
         ]
       },
