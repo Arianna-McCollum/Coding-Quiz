@@ -14,6 +14,35 @@ body{
     background-color: #F9ADA0;
 }
 /* Style for when the start button and final next button(or timer reaches 0) are clicked */
+a {
+    text-decoration: none;
+    color:#feefec;
+    text-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+a:hover{
+    color: #d8988c;
+    transition: all .3s ease-in-out;
+}
+
+.img1{
+    display: none;
+}
+.img2{
+    display: none;
+}
+
+.img1-activate{
+    display: flex;
+    align-self: center;
+}
+
+.img2-activate{
+    display: flex;
+    align-self: center;
+}
+
+
 .quiz.quizActivate, .results.resultsActivate{
     display:inline;
 }

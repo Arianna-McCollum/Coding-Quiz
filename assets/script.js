@@ -18,7 +18,7 @@ if (scores===null){
 }
 
 //start button click listener
-startBtn.onclick = ()=> {
+startBtn.onclick =()=> {
     quiz.classList.add("quizActivate");
     showQuestions(0);
     startTimer();
@@ -32,6 +32,12 @@ nextBtn.onclick = () => {
     if(questionCount < questions.length - 1){
         questionCount ++;
         showQuestions(questionCount);
+        var img1 = document.querySelector(".img1")
+        var img2 = document.querySelector(".img2")
+        img1.classList.remove("img1-activate");
+        img2.classList.remove("img2-activate");
+        
+
     }else{
         showResults();
     }
@@ -45,6 +51,7 @@ var score = { initials: initialInput, value: userScore};
 var saveInitials = function() {
     localStorage.setItem("initials", JSON.stringify(initials));
   };
+
 //Submit button click listener
 submitBtn.onclick =()=> {
     var score = { initials: initialInput.value, value : userScore};
@@ -56,12 +63,11 @@ submitBtn.onclick =()=> {
         li.appendChild(document.createTextNode(`${scores[i].initials} : ${scores[i].value}` ));
         console.log(li);
         userList.appendChild(li);
+    
     }
-
 //clear fields
     initialInput.value = '';
 }
-
 
 //Shows questions and answers
 function showQuestions(index){
@@ -80,14 +86,19 @@ function showQuestions(index){
 }
 //What happens when user clicks an option
 function optionSelected(answer){
+    var img1 = document.querySelector(".img1")
+    var img2 = document.querySelector(".img2")
     var userAnswer = answer.textContent;
     var correctAnswer = questions[questionCount].answer;
     var allOptions = answers.children.length;
     if(userAnswer == correctAnswer){
         answer.classList.add("correct");
+        img1.classList.add("img1-activate");
+
         userScore += 5;
     }else{
         answer.classList.add("incorrect");
+        img2.classList.add("img2-activate");
         subtractTimer();
 
         for (let i = 0; i < allOptions; i++){
