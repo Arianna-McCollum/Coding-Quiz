@@ -1,10 +1,16 @@
 const initialInput = document.querySelector('#ininput');
 const myForm = document.querySelector('#my-form');
 const userList = document.querySelector('.ranking-text');
+const resetBtn = document.querySelector(".reset");
 var userScore = [];
 var scores= JSON.parse(localStorage.getItem("scores"))
 if (scores===null){
     scores= []; 
+}
+
+resetBtn.onclick =()=>{
+    localStorage.clear();
+    location.reload();
 }
  
 
@@ -17,7 +23,6 @@ if (scores===null){
         console.log(li);
         userList.appendChild(li);
         
-
     }
 
     var list = document.getElementById("myList");
