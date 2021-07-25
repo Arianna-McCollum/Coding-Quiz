@@ -93,11 +93,17 @@ function optionSelected(answer){
     var allOptions = answers.children.length;
     if(userAnswer == correctAnswer){
         answer.classList.add("correct");
+        //Sound from Zapsplat.com
+        var audio = new Audio('zapsplat_multimedia_correct_ping_tone_001_68778.mp3');
+        audio.play();
         img1.classList.add("img1-activate");
 
         userScore += 5;
     }else{
         answer.classList.add("incorrect");
+        //Sound from Zapsplat.com
+        var audio = new Audio('zapsplat_cartoon_wrong_answer_fail_descending_tone_002_69416.mp3');
+        audio.play();
         img2.classList.add("img2-activate");
         subtractTimer();
 
